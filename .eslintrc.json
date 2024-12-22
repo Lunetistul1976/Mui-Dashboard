@@ -1,0 +1,44 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    // Overwrite existing rules
+
+    "import/prefer-default-export": 0, // Disable prefer-default-export rule
+    "no-console": ["error", { "allow": ["warn", "error"] }], // Allow only warn/error
+
+    // Add custom rules
+    "semi": ["error", "always"], // Require semicolons
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "^_" }
+    ], // Ignore vars starting with '_'
+    "quotes": ["error", "single"] // Enforce single quotes
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "build/",
+    "dist/",
+    ".eslintrc.json",
+    "craco.config.js"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
